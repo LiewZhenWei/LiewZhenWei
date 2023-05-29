@@ -1,3 +1,3 @@
 
 # test.github.io
-[Currency](https://liewzhenwei.github.io/LiewZhenWei/)
+[Currency](https://liewzhenwei.github.io/LiewZhenWei/demo.html)
