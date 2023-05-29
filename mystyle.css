@@ -1,0 +1,32 @@
+
+a:link{
+    color:blue;
+}
+a:visited{
+    color:brown;
+}
+a:hover{
+    color:aqua;
+}
+a:active{
+    color:yellow;
+}
+::selection{
+    color:aqua;
+    background:black;
+}img{
+    opacity:0.2;
+}
+
+img:hover{
+    width: 110%;
+    height:100%;
+    opacity:1.0;
+}
+.tbs:hover { 
+    background-color: rgba(185, 223, 15, 0.5);
+}
+div.remarks{
+    padding:15px;
+    text-align: center;
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>匯率轉換</title>
+        <link rel="stylesheet" href="mystyle.css">
+        <meta charset="utf-8">
+        <meta name="keywords" content="currency,website">
+        <meta name="author" conten="Liew Zhen Wei">
+        <meta name="description" content="This is about currency website">
+        <meta name="ID" content="美金，歐元，日圓，韓元，澳幣">
+    </head>
+    <body>
+        <h1>匯率轉換計算機</h1>
+            <div>
+                <label for="amount">請輸入台幣金額：</label>
+                <input id="amount" type="number">
+            </div>
+            <div>
+                <input id="btn" type="button" value="執行計算">
+                <button onclick="reset()">重新開始</button>
+                <hr>
+                Result(United State):<p class="summary"></p>
+                Result(Europe):<p id="summary"></p>
+                Result(Japan):<p id="summary2"></p>
+                Result(Korea):<p id="summary3"></p>
+                Result(Macau):<p class="summary4"></p>
+
+            </div>
+            <table border="1" align="center" cellpadding="40"bgcolor="#F5F5DC">
+                <caption style="font-size:25px"><b>Player intro</b></caption>
+                    <thead>
+                        <tr bgcolor="#EEE8AA">
+                            <th>No</th>
+                            <th>Athelete Name</th>
+                            <th width="400">Photo</th>
+                            <th>Position</th>
+                            <th>NBA team</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tbs">
+                            <td class="num">1.</td>
+                            <td class="name"><b>Lebron James</b></td>
+                            <td class="pic">
+                            <img src="image/lbjl.png" alt="勒布朗詹姆斯" height="100%" width="100%">
+                            <div class="remarks">
+                                The King
+                            </div>
+                            </td>
+                            <td>
+                                <ol>
+                                    <li>司職<span style="background-color: bisque">小前鋒</li>
+                                    <li>坦克式進攻</li>
+                                    <li>榮譽</li>
+                                </ol>
+                                    <ul>
+                                        <li>四次總冠軍</li>
+                                        <li>歷史得分王</li>
+                                    </ul>
+                            </td>
+                            <td>
+                                <a href="https://www.nba.com/lakers" target="blank">Lakers</a>
+                            </td>
+                        </tr>
+                <script>
+                    function loadRates() {
+                        var xhr = new XMLHttpRequest();
+                            xhr.open("GET", "rate.xml", true);
+                            xhr.onreadystatechange = function() {
+                              if (xhr.readyState === 4 && xhr.status === 200) {
+                                var xmlDoc = xhr.responseXML;
+                                var rates = xmlDoc.getElementsByTagName("rate");
+                                // 在此處理匯率資訊，例如將其存儲在JavaScript變量中供後續使用
+                              }
+                            };
+                            xhr.send();
+                          }
+                function reset() {
+          var amountInput = document.getElementById("amount");
+          amountInput.value = "";
+          var resultDiv = document.getElementById("result");
+          resultDiv.innerHTML = "";
+        }
+        
+        // 頁面載入完成時執行
+        window.onload = function() {
+          loadRates();
+        };
+            </script>
+        <script>
+                var summary = document.querySelector('.summary');
+                document.getElementById('btn').onclick=function(){
+                    var results='';
+                    var amount=parseInt(document.getElementById('amount').value)*0.0323;
+                    amount=amount.toFixed(2);
+                    results=amount+'(USD)';
+                    summary.innerHTML=results;
+                }
+        </script>
+        <script>
+            var summary1 = document.querySelector('.summary1');
+            document.getElementById('btn').onclick=function(){
+                var result1='';
+                var amount=parseInt(document.getElementById('amount').value)*0.0299;
+                amount=amount.toFixed(2);
+                result1=amount+'(Euro)';
+                summary1.innerHTML=result1;
+            }
+        </script>
+        <script>
+        var summary2 = document.querySelector('.summary2');
+        document.getElementById('btn').onclick=function(){
+            var result2='';
+            var amount=parseInt(document.getElementById('amount').value)*4.5065;
+            amount=amount.toFixed(2);
+            result2=amount+'(Japanese yen)';
+            summary2.innerHTML=result2;
+            }
+        </script>
+        <script>
+            var summary3 = document.querySelector('.summary3');
+            document.getElementById('btn').onclick=function(){
+                var result3='';
+                var amount=parseInt(document.getElementById('amount').value)*39.4477;
+                amount=amount.toFixed(2);
+                result3=amount+'(South Korean won)';
+                summary3.innerHTML=result3;
+            }
+    </script>
+    <script>
+        var summary4 = document.querySelector('.summary4');
+        document.getElementById('btn').onclick=function(){
+            var result4='';
+            var amount=parseInt(document.getElementById('amount').value)*0.0489;
+            amount=amount.toFixed(2);
+            result4=amount+'(Macanese pataca)';
+            summary4.innerHTML=result4;
+        }
+    </script>
+    </body>
+</html>

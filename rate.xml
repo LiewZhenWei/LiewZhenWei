@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rates>
+  <rate>
+    <currency>TWD</currency>
+    <exchangerate>1</exchangerate>
+  </rate>
+  <rate>
+    <currency>USD</currency>
+    <exchangerate>0.0323</exchangerate>
+  </rate>
+  <rate>
+    <currency>EUR</currency>
+    <exchangerate>0.0299</exchangerate>
+  </rate>
+  <rate>
+    <currency>JPY</currency>
+    <exchangerate>4.5065</exchangerate>
+  </rate>
+  <rate>
+    <currency>KRW</currency>
+    <exchangerate>39.4477</exchangerate>
+  </rate>
+  <rate>
+    <currency>AUD</currency>
+    <exchangerate>0.0489</exchangerate>
+  </rate>
+ 
+</rates>
