@@ -12,18 +12,16 @@
     <body>
         <h1>匯率轉換計算機</h1>
             <div>
-                <label for="amount">請輸入台幣金額：</label>
-                <input id="amount" type="number">
-            </div>
-            <div>
-                <input id="btn" type="button" value="執行計算">
+                <h1>請輸入台幣金額：</h1>
+                <input id="TWD" value="TWD" type="text" name="TWD">
+                <button type ="button" onclick="calculate()">執行計算</button>
                 <button onclick="reset()">重新開始</button>
-                <hr>
-                Result(United State):<p class="summary"></p>
-                Result(Europe):<p id="summary"></p>
-                Result(Japan):<p id="summary2"></p>
-                Result(Korea):<p id="summary3"></p>
-                Result(Macau):<p class="summary4"></p>
+            <hr>
+                Result(United State):<p id="USD"></p>
+                Result(Europe):<p id="EU"></p>
+                Result(Japan):<p id="JP"></p>
+                Result(Korea):<p id="KR"></p>
+                Result(Macau):<p class="MC"></p>
 
             </div>
             <table border="1" align="center" cellpadding="40"bgcolor="#F5F5DC">
@@ -62,80 +60,27 @@
                                 <a href="https://www.nba.com/lakers" target="blank">Lakers</a>
                             </td>
                         </tr>
-                <script>
-                    function loadRates() {
-                        var xhr = new XMLHttpRequest();
-                            xhr.open("GET", "rate.xml", true);
-                            xhr.onreadystatechange = function() {
-                              if (xhr.readyState === 4 && xhr.status === 200) {
-                                var xmlDoc = xhr.responseXML;
-                                var rates = xmlDoc.getElementsByTagName("rate");
-                                // 在此處理匯率資訊，例如將其存儲在JavaScript變量中供後續使用
-                              }
-                            };
-                            xhr.send();
-                          }
-                function reset() {
-          var amountInput = document.getElementById("amount");
-          amountInput.value = "";
-          var resultDiv = document.getElementById("result");
-          resultDiv.innerHTML = "";
-        }
-        
-        // 頁面載入完成時執行
-        window.onload = function() {
-          loadRates();
-        };
-            </script>
-        <script>
-                var summary = document.querySelector('.summary');
-                document.getElementById('btn').onclick=function(){
-                    var results='';
-                    var amount=parseInt(document.getElementById('amount').value)*0.0323;
-                    amount=amount.toFixed(2);
-                    results=amount+'(USD)';
-                    summary.innerHTML=results;
-                }
-        </script>
-        <script>
-            var summary1 = document.querySelector('.summary1');
-            document.getElementById('btn').onclick=function(){
-                var result1='';
-                var amount=parseInt(document.getElementById('amount').value)*0.0299;
-                amount=amount.toFixed(2);
-                result1=amount+'(Euro)';
-                summary1.innerHTML=result1;
-            }
-        </script>
-        <script>
-        var summary2 = document.querySelector('.summary2');
-        document.getElementById('btn').onclick=function(){
-            var result2='';
-            var amount=parseInt(document.getElementById('amount').value)*4.5065;
-            amount=amount.toFixed(2);
-            result2=amount+'(Japanese yen)';
-            summary2.innerHTML=result2;
-            }
-        </script>
-        <script>
-            var summary3 = document.querySelector('.summary3');
-            document.getElementById('btn').onclick=function(){
-                var result3='';
-                var amount=parseInt(document.getElementById('amount').value)*39.4477;
-                amount=amount.toFixed(2);
-                result3=amount+'(South Korean won)';
-                summary3.innerHTML=result3;
-            }
-    </script>
-    <script>
-        var summary4 = document.querySelector('.summary4');
-        document.getElementById('btn').onclick=function(){
-            var result4='';
-            var amount=parseInt(document.getElementById('amount').value)*0.0489;
-            amount=amount.toFixed(2);
-            result4=amount+'(Macanese pataca)';
-            summary4.innerHTML=result4;
-        }
-    </script>
-    </body>
+                        <script>
+                             function reset() {
+                            var amountInput = document.getElementById("amount");
+                            amountInput.value = "";
+                            var resultDiv = document.getElementById("result");
+                            resultDiv.innerHTML = "";
+                            }
+                        </script>
+                        <script>
+                            function getxml(){
+                                const xmlDoc=xml.responseXML;
+                                const x=xml.Doc.getElementByTagName("USA");
+                            }
+                            function calculate(){
+                                var val=document.getElementById("TWD").value;
+                                document.getElementById("USD").innerHTML=val*0.0323;
+                                document.getElementById("EU").innerHTML=val*0.0299;
+                                document.getElementById("JP").innerHTML=val*4.5065;
+                                document.getElementById("KR").innerHTML=val*39.4477;
+                                document.getElementById("MC").innerHTML=val*0.0489;
+                            }
+                        </script>
+                            </body>
 </html>
